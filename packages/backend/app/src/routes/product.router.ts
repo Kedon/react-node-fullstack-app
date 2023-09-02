@@ -446,7 +446,7 @@ router.post('/', isAuthenticated,  productController.create); // Create a new fe
  *        500:
  *          description: Internal server error
  */
-router.patch('/:product_id/active-status', productController.patchActiveStatus); // Partial update for one feeling
+router.patch('/:product_id/change-status', productController.patchActiveStatus); // Partial update for one feeling
 
 // // Todo: improve swagger doc!
 /**

@@ -16,7 +16,7 @@ const router: Router = Router();
  *   post:
  *     summary: Authenticate user and return token.
  *     tags:
- *       - Account
+ *       - Authentication
  *     requestBody:
  *       content:
  *         application/json:

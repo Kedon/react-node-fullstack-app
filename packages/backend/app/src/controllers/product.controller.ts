@@ -7,7 +7,12 @@ import {getJwtPayloadUserDetails} from "../utils/authUtils";
 
 import { ProductAttributes } from '../database/attributes'
 import { Query } from '../interfaces/query.interface';
-import { is } from 'sequelize/types/lib/operators';
+
+/** Porperties specific for products query */
+export interface ProductQuery extends Query {
+    product_id?: number;
+    account_id: number;
+}
 
 dotEnv.config();
   
@@ -32,7 +37,7 @@ export async function getAll(req: Request, res: Response, next: NextFunction): P
             searchTerm,
             endDate } = req.query;
          
-         const progressQuery = <Query>{
+         const progressQuery = <ProductQuery>{
             account_id: Number(payloadUser.account_id) || null,
             currentPage: currentPage,
             pageSize: Number(pageSize),
@@ -280,7 +285,8 @@ export async function patchActiveStatus(req: Request, res: Response, next: NextF
         } else {
             res.json({
                 status: 200,
-                message: { product_id: product_id, is_active: is_active }
+                message: 'Product status successfully changed',
+                data: { product_id: product_id, is_active: is_active }
             });
             return;
         }

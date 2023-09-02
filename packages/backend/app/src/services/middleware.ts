@@ -96,7 +96,7 @@ export function initErrorHandler(app: express.Application): void {
                 error = new HttpError(500, error.message);
                 res.sendHttpError(error);
             } else {
-                error = new HttpError(500);
+                error = new HttpError(400);
                 res.sendHttpError(error, error.message);
             }
         }
