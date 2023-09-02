@@ -1,0 +1,23 @@
+.DS_Store
+dist/electron/*
+dist/web/*
+build/
+build.*
+!build/icons
+node_modules/
+npm-debug.log
+npm-debug.log.*
+thumbs.db
+!.gitkeep
+.npmrc
+
+# local env files
+.env.local
+.env.*.local
+.env
+.vs/Omnify.UI/v17/.suo
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+.env
+.env
+.env

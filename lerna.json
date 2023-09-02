@@ -1,0 +1,10 @@
+{
+  "packages": [
+    "packages/frontend/*",
+    "packages/backend/*"
+  ],
+  "version": "0.0.2",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "stream": true
+}

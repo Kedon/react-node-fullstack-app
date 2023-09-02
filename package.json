@@ -1,0 +1,45 @@
+{
+  "name": "@fullstack/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
+    "lerna": "^3.22.1"
+  },
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/backend/*",
+      "packages/frontend/auth",
+      "packages/frontend/chatweb",
+      "packages/frontend/omnyve",
+      "packages/frontend/container"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
+  },
+  "scripts": {
+    "build": "yarn lerna run build",
+    "dev": "yarn lerna run dev",
+    "test": "yarn lerna run test",
+    "publish": "yarn lerna publish --no-private",
+    "commit": "yarn git-cz",
+    "build:storybook": "yarn build && yarn lerna run storybook build"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

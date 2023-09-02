@@ -1,0 +1,44 @@
+###################################################################################
+###### CREATE ACCOUNT                                                        ######
+###################################################################################
+### Send POST request with json body
+POST http://localhost:3000/auth/create-account
+Content-Type: application/json
+
+{
+  "organizationId": 1,
+  "name": "Test User",
+  "email": "test@tester.com",
+  "password": "toohardpasswd"
+}
+
+###################################################################################
+###### LOGIN                                                                 ######
+###################################################################################
+### Send POST request with json body
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@tester.com",
+  "password": "toohardpasswd"
+}
+
+###################################################################################
+###### EXAMPLE ROUTE TESTS, WITH AUTH AND NO AUTH                            ######
+###################################################################################
+
+### No authentication, result will be ok without token
+GET http://localhost:3000/example/no-auth
+Accept: application/json
+
+### Token missing, throw error 400
+GET http://localhost:3000/example/with-auth
+Accept: application/json
+
+### Token provided, get token from login
+GET http://localhost:3000/example/with-auth
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJUZXN0IFVzZXIiLCJpZCI6MywiZW1haWwiOiJ0ZXN0QHRlc3Rlci5jb20iLCJpYXQiOjE1OTgzNDIzNzksImV4cCI6MTU5ODM0NTk3OX0.mgyA-axI4kd-IW-YbyJK7KqpCmIJLyNF3bLM7Fnu9fo
+
+###
